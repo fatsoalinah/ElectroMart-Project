@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroMart</title>
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css"> 
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+</head>
+<body>
+    <header class="bg-dark text-white">
+        <nav class="navbar navbar-expand-lg bg-grey sticky-top navbar-light p-3 shadow-sm">
+            <a class="navbar-brand" href="#">
+                <img src="media/electromart-removebg-preview.png" alt="ElectroMart Logo" style="width: 150px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 text-uppercase active" aria-current="page" href="#">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 text-uppercase" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 text-uppercase" href="#">Catalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 text-uppercase" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 text-uppercase" href="#">About</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 text-uppercase" href="#" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-circle-user me-1"></i> Account</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Cart Container -->
+    <div id="cart-container" class="cart-container container mt-4" style="display: none;">
+        <h5>Your Cart</h5>
+        <ul id="cart-items" class="list-group mb-3"></ul>
+        <button class="btn btn-success" onclick="cashOut()">Cash Out</button>
+    </div>
+
+    <!-- Products -->
+    <main id="product-listings" class="container my-4">
+        <div class="row">
+            <div class="col-md-3 product">
+                <div class="image-frame">
+                    <img src="Media/Apple_iphone_15_pro_max.jfif" alt="Apple iPhone 15 Pro Max">
+                </div>
+                <h2>Apple iPhone 15 Pro Max</h2>
+                <p>R30,999.99</p>
+                <button class="btn btn-primary add-to-cart" data-product-name="Apple iPhone 15 Pro Max" onclick="addToCart('Apple iPhone 15 Pro Max', 30999.99)">
+                    Add to Cart
+                    <span class="quantity-badge">0</span>
+                </button>
+            </div>
+            <div class="col-md-3 product">
+                <div class="image-frame">
+                    <img src="Media/Laptop_Model_1.jpg" alt="Lenovo IdeaPad 1">
+                </div>
+                <h2>Lenovo IdeaPad 1</h2>
+                <p>R9,999.99</p>
+                <button class="btn btn-primary add-to-cart" data-product-name="Lenovo IdeaPad 1" onclick="addToCart('Lenovo IdeaPad 1', 9999.99)">
+                    Add to Cart
+                    <span class="quantity-badge">0</span>
+                </button>
+            </div>
+            <div class="col-md-3 product">
+                <div class="image-frame">
+                    <img src="Media/headsets.jpg" alt="JBL Tune 520BT Wireless On-Ear Headphones, Blue">
+                </div>
+                <h2>JBL Tune 520BT Wireless On-Ear Headphones, Blue</h2>
+                <p>R899.99</p>
+                <button class="btn btn-primary add-to-cart" data-product-name="JBL Tune 520BT Wireless On-Ear Headphones" onclick="addToCart('JBL Tune 520BT Wireless On-Ear Headphones', 899.99)">
+                    Add to Cart
+                    <span class="quantity-badge">0</span>
+                </button>
+            </div>
+            <div class="col-md-3 product">
+                <div class="image-frame">
+                    <img src="Media/router.jpg" alt="SUNSHINE TOOLS 4G LTE CPE HOME ROUTER">
+                </div>
+                <h2>SUNSHINE TOOLS 4G LTE CPE HOME ROUTER</h2>
+                <p>R799.00</p>
+                <button class="btn btn-primary add-to-cart" data-product-name="SUNSHINE TOOLS 4G LTE CPE HOME ROUTER" onclick="addToCart('SUNSHINE TOOLS 4G LTE CPE HOME ROUTER', 799.00)">
+                    Add to Cart
+                    <span class="quantity-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About ElectroMart</h5>
+                    <p>ElectroMart is your one-stop shop for all electronics. We offer a wide range of products including mobile phones, computers, tablets, wearables, and more.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: <a href="mailto:info@electromart.co.za" class="email-link">info@electromart.co.za</a></p>
+                    <p>Phone: <a href="tel:+01001231234" class="text-white">0-100-123-1234</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2024 ElectroMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
